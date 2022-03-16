@@ -1,6 +1,7 @@
 package ui
 
 import (
+	"github.com/aimerneige/bilibili-cover-previewer/internal/app/ui/bind"
 	"github.com/webview/webview"
 )
 
@@ -17,7 +18,7 @@ func ShowMainWindow(debug bool, port string) {
 
 	w.SetTitle(title)
 	w.SetSize(width, height, webview.HintNone)
-
+	bind.AllBindCollection(w)
 	w.Navigate("http://localhost" + port)
 	w.Run()
 }
