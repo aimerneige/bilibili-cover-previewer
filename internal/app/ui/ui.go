@@ -7,8 +7,8 @@ import (
 
 const (
 	title  = "Bilibili Cover Previewer"
-	width  = 1024
-	height = 768
+	width  = 400
+	height = 680
 )
 
 // ShowMainWindow show main window
