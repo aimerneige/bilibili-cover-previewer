@@ -6,10 +6,10 @@ import "github.com/gin-gonic/gin"
 func StartWebServer(port, root string) {
 	r := gin.Default()
 
-	buildDir := root + "build/"
+	appDir := root + "app/"
 	staticDir := root + "static/"
 
-	r.LoadHTMLFiles(buildDir + "index.html")
+	r.LoadHTMLFiles(appDir + "index.html")
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(200, "index.html", nil)
