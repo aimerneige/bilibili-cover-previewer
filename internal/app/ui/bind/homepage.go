@@ -28,17 +28,12 @@ func OpenBilibiliHomePageBind() interface{} {
 		w := webview.NewWindow(false, nil)
 		w.SetSize(1366, 768, webview.HintNone)
 		w.Navigate("https://www.bilibili.com/")
-		// w.Dispatch(func() {
-		// 	go func() {
-		// 		time.Sleep(time.Second * 4)
-		// 		w.Eval(fmt.Sprintf(js, title, author, date, play, star, duration, cover, alt))
-		// 	}()
-		// })
-
-		go func() {
-			time.Sleep(time.Second * 4)
-			w.Eval(fmt.Sprintf(js, title, author, date, play, star, duration, cover, alt))
-		}()
+		w.Dispatch(func() {
+			go func() {
+				time.Sleep(time.Second * 4)
+				w.Eval(fmt.Sprintf(js, title, author, date, play, star, duration, cover, alt))
+			}()
+		})
 
 		w.Run()
 		return nil
